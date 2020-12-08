@@ -12,7 +12,8 @@ jobs:
         uses: wearerequired/git-mirror-action@master
         env:
           # 注意在本 github 仓库 Settings->Secrets 中配置 GITEE_RSA_PRIVATE_KEY
-          # GITEE_RSA_PRIVATE_KEY 是 gitee 的个人 ssh 公钥，可以在 个人头像->设置->安全设置->SSH公钥 中设置
+          # GITEE_RSA_PRIVATE_KEY 是个人 ssh 私钥，即 ssh-keygen -t rsa -C "xxx@xxxx.com" 生成的 ~/.ssh/id_rsa
+          # 需要把 ssh-keygen -t rsa -C "xxx@xxxx.com" 生成的 ~/.ssh/id_rsa.pub 公钥配置到 gitee 个人头像->设置->安全设置->SSH公钥 中
           SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
         with:
           # 注意替换为你的 GitHub 源仓库地址
